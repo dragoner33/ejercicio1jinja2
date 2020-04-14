@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo</title>
+
+    <script>
+        function check(){
+            const CIF = document.getElementById("cif")
+            const nombre = document.getElementById("nombre")
+            const direccion = document.getElementById("direccion")
+            const poblacion = document.getElementById("poblacion")
+            const provincia = document.getElementById("provincia")
+            const codigopostal = document.getElementById("codigopostal")
+            const pais = document.getElementById("pais")
+            const personadecontacto = document.getElementById("personadecontacto")
+            const email = document.getElementById("email")
+            const telefono = document.getElementById("telefono")
+
+
+            const CIFcl = document.getElementById("cifcl")
+            const nombrecl = document.getElementById("nombrecl")
+            const direccioncl = document.getElementById("direccioncl")
+            const poblacioncl = document.getElementById("poblacioncl")
+            const provinciacl = document.getElementById("provinciacl")
+            const codigopostalcl = document.getElementById("codigopostalcl")
+            const paiscl = document.getElementById("paiscl")
+            const personadecontactocl = document.getElementById("personadecontactocl")
+            const emailcl = document.getElementById("emailcl")
+            const telefonocl = document.getElementById("telefonocl")
+
+             const concepto = document.getElementById("concepto")
+             const precio = document.getElementById("precio")
+             const unidad = document.getElementById("unidades")
+             const importebruto = document.getElementById("importebruto")
+             const IVA = document.getElementById("iva")
+             const importetotal = document.getElementById("importetot")
+
+
+
+
+            var toret = true;
+            if(CIF.value.trim().length === 0 || nombre.value.trim().length === 0 || direccion.value.trim().length === 0 || poblacion.value.trim().length === 0 || provincia.value.trim().length === 0 || codigopostal.value.trim().length === 0 || pais.value.trim().length === 0 || personadecontacto.value.trim().length === 0 || email.value.trim().length === 0 || telefono.value.trim().length === 0){
+                toret = false;
+            }
+            if(CIFcl.value.trim().length === 0 || nombrecl.value.trim().length === 0 || direccioncl.value.trim().length === 0 || poblacioncl.value.trim().length === 0 || provinciacl.value.trim().length === 0 || codigopostalcl.value.trim().length === 0 || paiscl.value.trim().length === 0 || personadecontactocl.value.trim().length === 0 || emailcl.value.trim().length === 0 || telefonocl.value.trim().length === 0){
+                toret = false;
+            }
+            if(concepto.value.trim().length === 0 || precio.value.trim().length === 0 || unidad.value.trim().length === 0 || importebruto.value.trim().length === 0 || IVA.value.trim().length === 0 || importetotal.value.trim().length === 0){
+                toret = false
+            }
+           return toret;
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <form id="factura" action="/factura" method="post" onsubmit="return check()">
+        <h1>Datos emisor</h1>
+        <label for="cif">CIF:</label>
+        <input type="text" id="cif" name="cif"/>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"/>
+        <label for="direccion">Direccion:</label>
+        <input type="text" id="direccion" name="direccion"/>
+        <label for="poblacion">Poblacion:</label>
+        <input type="text" id="poblacion" name="poblacion"/>
+        <label for="provincia">Provincia:</label>
+        <input type="text" id="provincia" name="provincia"/>
+        <label for="codigopostal">Codigo Postal:</label>
+        <input type="number" id="codigopostal" name="codigopostal"/>
+        <label for="pais">Pais:</label>
+        <input type="text" id="pais" name="pais"/>
+        <label for="personadecontacto">Persona de contacto:</label>
+        <input type="text" id="personadecontacto" name="personadecontacto"/>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"/>
+        <label for="telefono">Telefono:</label>
+        <input type="number" id="telefono" name="telefono"/>
+
+
+
+        <h1>datos cliente</h1>
+
+        <label for="cifcl">CIF:</label>
+        <input type="text" id="cifcl" name="cifcl"/>
+        <label for="nombrecl">Nombre:</label>
+        <input type="text" id="nombrecl" name="nombrecl"/>
+        <label for="direccioncl">Direccion:</label>
+        <input type="text" id="direccioncl" name="direccioncl"/>
+        <label for="poblacioncl">Poblacion:</label>
+        <input type="text" id="poblacioncl" name="poblacioncl"/>
+        <label for="provinciacl">Provincia:</label>
+        <input type="text" id="provinciacl" name="provinciacl"/>
+        <label for="codigopostalcl">Codigo Postal:</label>
+        <input type="number" id="codigopostalcl" name="codigopostalcl"/>
+        <label for="paiscl">Pais:</label>
+        <input type="text" id="paiscl" name="paiscl"/>
+        <label for="personadecontactocl">Persona de contacto:</label>
+        <input type="text" id="personadecontactocl" name="personadecontactocl"/>
+        <label for="emailcl">Email:</label>
+        <input type="email" id="emailcl" name="emailcl"/>
+        <label for="telefonocl">Telefono:</label>
+        <input type="number" id="telefonocl" name="telefonocl"/>
+
+
+
+        <h1>Linea de detalles</h1>
+        <label for="concepto">Concepto:</label>
+        <input type="text" id="concepto" name="concepto"/>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio"/>
+        <label for="unidades">Numero de unidades:</label>
+        <input type="number" id="unidades" name="unidades"/>
+        <label for="importebruto">Importe bruto:</label>
+        <input type="number" id="importebruto" name="importebruto"/>
+        <label for="iva">IVA:</label>
+        <input type="number" id="iva" name="iva"/>
+        <label for="importetot">Importe total:</label>
+        <input type="number" id="importetot" name="importetot"/>
+
+        <input type="submit" value="crear factura" />
+    </form>
+
+</body>
+</html>
